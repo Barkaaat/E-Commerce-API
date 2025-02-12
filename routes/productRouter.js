@@ -1,5 +1,6 @@
 const express = require('express');
 const adminAuth = require('../middelwares/adminAuth');
+const checkUser = require('../middelwares/checkUser');
 const { getProduct, addProduct, deleteProduct } = require('../controllers/productController');
 
 
