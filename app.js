@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const authRouter = require('./routes/authRouter');
 const adminRouter = require('./routes/adminRouter');
 const adminAuth = require('./middelwares/adminAuth');
+const porductRouter = require('./routes/productRouter');
+const cartRouter = require('./routes/cartRouter');
+const orderRouter = require('./routes/orderRouter');
 
 
 const app = express();
@@ -17,8 +20,11 @@ mongoose.connect(DB)
     .catch(err => console.log(err));
 
 
-app.use('/auth', authRouter);
-app.use('/admin', adminAuth, adminRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/admin', adminAuth, adminRouter);
+app.use('/api/v1/products', porductRouter);
+app.use('/api/v1/cart', cartRouter);
+app.use('/api/v1/order', orderRouter);
 
 
 const port = process.env.PORT || 3000;

@@ -1,13 +1,11 @@
 const express = require('express');
-const { getAllUsers, addAdmin, updateUser, deleteUser } = require('../controllers/adminController');
-const adminAuth = require('../middelwares/adminAuth')
+const { getAllUsers, addAdmin, deleteUser } = require('../controllers/adminController');
 
 const router = express.Router();
 
-router.route('/:id')
-    .get(adminAuth, getAllUsers)
-    .post(adminAuth, addAdmin)
-    .put(adminAuth, updateUser)
-    .delete(adminAuth, deleteUser);
+router.get('/', getAllUsers);
+router.put('/:id', addAdmin);
+router.delete('/:id', deleteUser);
+
 
 module.exports = router;

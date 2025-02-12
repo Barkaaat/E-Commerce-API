@@ -87,7 +87,7 @@ async function login (req, res) {
     const unhash = await bcrypt.compare(pass, user[0].pass);
     if (unhash) {
         const token = await jwt.sign(
-            { mail: mail, admin: user[0].is_admin },
+            { id: user[0].id, mail: mail, admin: user[0].is_admin },
             process.env.JWT_SECRET,
             { expiresIn: '2000000m' }
         );

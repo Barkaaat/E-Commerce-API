@@ -17,7 +17,7 @@ async function sendMail(mail) {
         },
     });
     
-    const link = `${process.env.DOMIN_LINK}/auth/verify/${token}`;
+    const link = `${process.env.DOMIN_LINK}/api/v1/auth/verify/${token}`;
     const html_tmp = `
         <div>
             <p>Click on the link below to verify your email</p>
